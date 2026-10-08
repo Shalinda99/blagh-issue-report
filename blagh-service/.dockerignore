@@ -1,0 +1,12 @@
+venv
+__pycache__
+*.pyc
+*.pyo
+*.db
+.pytest_cache
+.coverage
+htmlcov
+alembic/versions/__pycache__
+.env
+*.log
+tests

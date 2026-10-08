@@ -1,0 +1,42 @@
+[
+  {
+    "id": 10000001,
+    "version": 1,
+    "eventRef": "INC0010000001",
+    "eventType": "INCIDENT",
+    "eventStatus": "OPEN",
+    "shortDescription": "Unable to log into the employee portal",
+    "remarks": "I cannot access the employee portal. The login page accepts my credentials but immediately redirects me back to the login screen without granting access.",
+    "priorityCode": "P2",
+    "priorityDescription": "High",
+    "impact": 2,
+    "urgency": 2,
+    "creationDate": "2026-09-01T08:15:00Z",
+    "lastModifiedDate": "2026-09-01T08:15:00Z",
+    "affectedUserId": 101,
+    "assignedGroupId": 1,
+    "serviceId": 301,
+    "categoryId": 201,
+    "subCategoryId": 2011
+  },
+  {
+    "id": 10000002,
+    "version": 1,
+    "eventRef": "INC0010000002",
+    "eventType": "INCIDENT",
+    "eventStatus": "IN_PROGRESS",
+    "shortDescription": "Production database connection refused",
+    "remarks": "The application is throwing connection refused errors when attempting to connect to the production PostgreSQL database.",
+    "priorityCode": "P1",
+    "priorityDescription": "Critical",
+    "impact": 1,
+    "urgency": 1,
+    "creationDate": "2026-09-15T14:22:00Z",
+    "lastModifiedDate": "2026-09-15T15:00:00Z",
+    "affectedUserId": 102,
+    "assignedGroupId": 5,
+    "serviceId": 307,
+    "categoryId": 202,
+    "subCategoryId": 2021
+  }
+]

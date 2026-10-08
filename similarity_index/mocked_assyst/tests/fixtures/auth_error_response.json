@@ -1,0 +1,5 @@
+{
+  "type": "UnauthorizedException",
+  "message": "Authentication required.",
+  "diagnostic": ""
+}

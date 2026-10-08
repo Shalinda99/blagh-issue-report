@@ -1,0 +1,83 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: mock-assyst-api
+    ports:
+      - "8081:8081"
+    environment:
+      APP_NAME: "Mock IFS assyst REST API"
+      APP_ENV: development
+      APP_HOST: "0.0.0.0"
+      APP_PORT: 8081
+      MONGODB_URI: mongodb://mongodb:27017
+      MONGODB_DATABASE: mock_assyst
+      ASSYST_API_VERSION: v2
+      ASSYST_BASE_PATH: /assystREST/v2
+      MOCK_AUTH_ENABLED: "true"
+      MOCK_AUTH_USERNAME: mock_user
+      MOCK_AUTH_PASSWORD: change_me
+      MOCK_AUTH_BYPASS: "false"
+      SEED_DATA_ENABLED: "true"
+      SEED_DATA_COUNT: 100
+      LOG_LEVEL: INFO
+      FAULT_INJECTION_ENABLED: "false"
+      FAULT_INJECTION_ERROR_RATE: "0.0"
+      FAULT_INJECTION_DELAY_MS: "0"
+      PAGINATION_DEFAULT_SIZE: "25"
+      PAGINATION_MAX_SIZE: "100"
+      CORS_ORIGINS: '["http://localhost:3000","http://localhost:5173"]'
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8081/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 20s
+    networks:
+      - mock-assyst-net
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: mock-assyst-ui
+    ports:
+      - "3000:3000"
+    environment:
+      VITE_ASSYST_API_BASE_URL: http://localhost:8081
+      VITE_APP_ENV: mock
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - mock-assyst-net
+
+  mongodb:
+    image: mongo:7.0
+    container_name: mock-assyst-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - mock-assyst-net
+
+volumes:
+  mongo_data:
+    name: mock-assyst-mongo-data
+
+networks:
+  mock-assyst-net:
+    name: mock-assyst-network

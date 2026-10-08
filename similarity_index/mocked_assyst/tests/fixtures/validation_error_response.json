@@ -1,0 +1,12 @@
+{
+  "type": "ComplexValidationException",
+  "message": "A complex validation error has been detected by the application.",
+  "errors": [
+    {
+      "rule": "validationError",
+      "field": "body.shortDescription",
+      "message": "Field required",
+      "diagnostic": "missing"
+    }
+  ]
+}

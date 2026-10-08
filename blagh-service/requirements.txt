@@ -1,0 +1,26 @@
+# Web framework
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+
+# Database — MongoDB
+pymongo[srv]==4.10.1            # sync driver
+
+# Object Storage — MinIO
+minio==7.2.11
+
+# HTTP client — used to mirror reports into assyst
+httpx==0.28.1
+
+# Validation & Settings
+pydantic==2.10.3
+pydantic-settings==2.7.0
+pydantic[email]
+
+# Security
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+bcrypt==3.2.2                   # passlib 1.7.4 is incompatible with bcrypt >=4.0
+python-multipart==0.0.20
+
+# Utilities
+python-dotenv==1.0.1

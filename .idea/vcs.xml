@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/blagh-admin-bff" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/blagh-admin-ui" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/blagh-mock-ui" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/blagh-service" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/blagh-ui" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/blagh-ui-bff" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/similarity_index" vcs="Git" />
+  </component>
+</project>

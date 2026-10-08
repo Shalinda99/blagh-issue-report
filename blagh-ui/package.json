@@ -1,0 +1,12 @@
+{
+  "name": "blagh-ui",
+  "version": "1.0.0",
+  "description": "Embeddable issue reporter widget for any web application",
+  "private": true,
+  "scripts": {
+    "start": "node build.js --serve",
+    "dev":   "node build.js --serve",
+    "build": "node build.js",
+    "watch": "node build.js --watch"
+  }
+}
